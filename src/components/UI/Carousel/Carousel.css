@@ -1,9 +1,17 @@
+
 .carousel {
-   width: 90vw;
-   height: 80vh;
-   border: 1px solid red;
+   width: 85%;
+   max-width: 90%;
+   height: 90vh;
+   position: relative;  
+   margin: 0 auto; 
+}
+
+.carousel__imageandcontrols {
    display: flex;
    justify-content: space-between;
+   width: 100%;
+   height: 100%;
 }
 
 .carousel__btn {
@@ -19,10 +27,55 @@
 
 .carousel__imgcontainer {
    display: flex;
-   justify-content: center;
+   flex-direction: column;
+   justify-content: flex-start;
    align-items: center;
 }
 
 .carousel__imgcontainer img {
-   width: 600px;
+   margin-top: 1rem;
+   max-width: 700px;
+   max-height: 500px;
+}
+
+.carousel__imgcontainer p {
+   margin: 0.5rem auto;
+   font-size: 1rem;
+   color:#333;
+}
+
+.carousel__imgcontainer a {
+   margin: 0.5rem auto;
+   font-size: 1rem;
+   color:black;
+}
+
+.carousel__imgcontainer a:hover {
+   text-decoration: underline;
+   font-size: 1.1rem;
+   transition: all 500ms;
+   color:rgb(246, 145, 162);
+}
+
+
+.imageslist {
+   position: absolute;
+   width: 100%;
+   height: 110px; 
+   bottom: 0;
+   left: 0;
+   overflow:hidden;
+   scroll-behavior: smooth;
+   -webkit-overflow-scrolling: touch;
+   z-index: -1;
+   display: flex;
+   justify-content: space-between;
+   gap:0.6rem;
+   /* flex-wrap: wrap; */
+}
+
+.imageslist__img {
+   width: 120px;
+   flex-shrink: 0;
+   overflow-x: auto;
 }

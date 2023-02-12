@@ -1,14 +1,11 @@
-import { useState } from 'react';
-
 import './App.css';
 import Carousel from './components/UI/Carousel/Carousel';
+import { data } from './data/images-data';
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
 		<div className='App'>
-			<Carousel></Carousel>
+			<Carousel imgList={data} />
 		</div>
 	);
 }
