@@ -1,0 +1,28 @@
+.carousel {
+   width: 90vw;
+   height: 80vh;
+   border: 1px solid red;
+   display: flex;
+   justify-content: space-between;
+}
+
+.carousel__btn {
+   border-style: none;
+   background-color: #FF00C7;
+   opacity: 0.3;
+   padding: 0.5rem;
+}
+
+.right img {
+   rotate: 180deg;
+}
+
+.carousel__imgcontainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.carousel__imgcontainer img {
+   width: 600px;
+}
