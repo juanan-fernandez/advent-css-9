@@ -1,6 +1,6 @@
 
 .carousel {
-   width: 85%;
+   width: 90%;
    max-width: 90%;
    height: 90vh;
    position: relative;  
@@ -21,6 +21,12 @@
    padding: 0.5rem;
 }
 
+.carousel__btn:hover {
+   opacity: 0.5;
+   cursor: pointer;
+   transition: all 300ms;
+}
+
 .right img {
    rotate: 180deg;
 }
@@ -34,8 +40,8 @@
 
 .carousel__imgcontainer img {
    margin-top: 1rem;
-   max-width: 700px;
-   max-height: 500px;
+   max-width: 900px;
+   max-height: 600px;
 }
 
 .carousel__imgcontainer p {
@@ -67,15 +73,30 @@
    overflow:hidden;
    scroll-behavior: smooth;
    -webkit-overflow-scrolling: touch;
-   z-index: -1;
+   z-index: 20;
    display: flex;
    justify-content: space-between;
    gap:0.6rem;
-   /* flex-wrap: wrap; */
+
 }
+
 
 .imageslist__img {
    width: 120px;
    flex-shrink: 0;
    overflow-x: auto;
+}
+
+.imageslist__img:hover {
+   cursor: pointer;
+   transition: all 800ms;
+   border:5px solid rgb(246, 145, 162)
+
+}
+
+.imageslist__img--active {
+   width: 120px;
+   flex-shrink: 0;
+   overflow-x: auto;
+   border:6px solid #FF00C7;
 }

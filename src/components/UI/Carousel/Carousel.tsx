@@ -1,5 +1,5 @@
 import './Carousel.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ImageGal } from '../../../data/images-data';
 
 type CarouselProps = {
@@ -7,7 +7,7 @@ type CarouselProps = {
 };
 const Carousel = ({ imgList }: CarouselProps) => {
 	const getRandomImage = (): ImageGal => {
-		const randomIndex = 0;
+		const randomIndex = 4;
 		return imgList[randomIndex];
 	};
 
@@ -15,8 +15,22 @@ const Carousel = ({ imgList }: CarouselProps) => {
 	const [imageList, setImageList] = useState<Array<ImageGal>>(imgList);
 
 	const list = imageList.map(img => {
-		return <img key={img.id} className='imageslist__img' src={`/images/${img.src}`} />;
+		return (
+			<img
+				onClick={ev => handleClickImgList(ev, img.id)}
+				key={img.id}
+				className={`${
+					img.id === activeImage.id ? 'imageslist__img--active' : 'imageslist__img'
+				}`}
+				src={`/images/${img.src}`}
+			/>
+		);
 	});
+
+	const handleClickImgList = (ev: React.MouseEvent<HTMLImageElement>, imgId: number) => {
+		const index = imageList.findIndex(item => item.id === imgId);
+		setActiveImage(imageList[index]);
+	};
 
 	const updateImageList = (direction: string) => {
 		if (direction === 'right') {
@@ -48,18 +62,26 @@ const Carousel = ({ imgList }: CarouselProps) => {
 		setActiveImage(imageList[indexToGo]);
 		updateImageList(direction);
 	};
+
 	return (
 		<div className='carousel'>
 			<div className='carousel__imageandcontrols'>
-				<button className='carousel__btn'>
+				<button className='carousel__btn' onClick={ev => handleClick(ev, 'left')}>
 					<img src='/images/chevron.svg' />
 				</button>
 				<div className='carousel__imgcontainer'>
 					<img src={`/images/${activeImage.src}`} />
 					<div>
 						<p>
-							Photo by <a href={activeImage.gallery}>{activeImage.author}</a> on{' '}
-							<a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>
+							Photo by{' '}
+							<a href={activeImage.gallery} target='_blank'>
+								{activeImage.author}
+							</a>{' '}
+							on{' '}
+							<a
+								href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+								target='_blank'
+							>
 								Unsplash
 							</a>
 						</p>
