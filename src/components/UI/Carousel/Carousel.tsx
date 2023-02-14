@@ -1,5 +1,5 @@
 import './Carousel.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ImageGal } from '../../../data/images-data';
 
 type CarouselProps = {
